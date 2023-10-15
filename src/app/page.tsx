@@ -1,9 +1,12 @@
 import AddTask from "./components/AddTask";
 import TodoList from "./components/TodoList";
+import { getAllTodos } from "../../api";
 
-export default function Home() {
+export default async function Home() {
   //TODO: Calling the tasks function that are created at api.tsx
   //TODO: Use the getAllTodos() and promise to get the tasks response
+  const tasks = await getAllTodos();
+  console.log(tasks);
   return (
     <main className="max-w-4xl mx-auto mt-4">
       {/* //FIXME: Add the styling here */}
@@ -13,7 +16,7 @@ export default function Home() {
         <h1 className="mb-3.5">Todo List App</h1>
         <AddTask />
       </div>
-      <TodoList />
+      <TodoList tasks={tasks} />
       {/* //TODO: Create the Todolist Component that can passing the tasks as prop */}
     </main>
   );
