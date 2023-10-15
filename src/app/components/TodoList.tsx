@@ -6,7 +6,7 @@ import Task from "../components/Task";
 //TODO:  Specify the type of data
 interface TodoListProps {
   //FIXME: Fix this type to array of ITask[]
-  tasks: ITask;
+  tasks: ITask[];
 }
 
 const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
@@ -21,7 +21,10 @@ const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
           </tr>
         </thead>
         <tbody>
-          <Task />
+          {/* FIXME: Passed the task and filter the key and prop that will be used in task */}
+          {tasks.map((task)=>(
+            <Task key={task.id} task={task}/>
+          ))}
         </tbody>
       </table>
     </div>

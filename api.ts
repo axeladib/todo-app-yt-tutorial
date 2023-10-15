@@ -29,3 +29,25 @@ export const addTodo = async (todo: ITask): Promise<ITask> => {
   const newTodo = await response.json();
   return newTodo;
 };
+
+//TODO: Create the editTodo
+export const editTodo = async (todo: ITask): Promise<ITask> => {
+  //TODO: Create the response that return updatedTodo
+  const response = await fetch(`${baseURL}/tasks/${todo.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(todo),
+  });
+  const updatedTodo = await response.json();
+  return updatedTodo;
+};
+
+//TODO: Create deleteTodo
+export const deleteTodo = async (id: string):Promise<void> => {
+  //TODO: fetch the url with id of the desire delete item
+  await fetch(`${baseURL}/tasks/${id}`, {
+    method: "DELETE",
+  });
+};
