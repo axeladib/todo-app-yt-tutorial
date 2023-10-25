@@ -2,10 +2,12 @@
 
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
-import { useState, FormEventHandler } from "react";
+import { useState, FormEventHandler, useEffect } from "react";
 import { addTodo } from "../../../api";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
+import { getAllPrices } from "../../../utils/api_shop";
+import { getEnabledExperimentalFeatures } from "next/dist/server/config";
 
 const AddTask = () => {
   //TODO: Create the logic here
@@ -14,7 +16,11 @@ const AddTask = () => {
   //TODO: Setup the state management for tasks<string> and modalOpen<boolean>
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskValue, setNewTaskValue] = useState<string>("");
+ 
 
+  //TODO: Call the the prices from the API and update the prices from the data
+
+  //FIXME: Delete this after that
   //TODO: Create the handleSubmitNewTask functiontion for form to submit
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (
     event
@@ -59,7 +65,7 @@ const AddTask = () => {
               value={newTaskValue}
               className="input input-bordered w-full"
               type="text"
-              placeholder="Enter your task here"
+              placeholder="Enter the shop name here"
               onChange={(event) => setNewTaskValue(event.target.value)}
             />
             <button className="btn">Submit</button>

@@ -1,0 +1,16 @@
+{
+  "shops": [
+    {
+      "id": "1",
+      "name": "Pokya",
+      "price": "RM5-RM10",
+      "location": "UPM, Selangor"
+    },
+    {
+      "id": "2",
+      "name": "Tasek",
+      "price": "RM5-RM10",
+      "location": "UPM, Selangor"
+    }
+  ]
+}

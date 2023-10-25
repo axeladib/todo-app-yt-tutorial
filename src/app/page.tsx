@@ -1,28 +1,45 @@
 import AddTask from "./components/AddTask";
 import TodoList from "./components/TodoList";
-import { getAllTodos } from "../../api";
+
 import { ITask } from "../../types/task";
+import AddShop from "./components/AddShop";
+import { getAllShops } from "../../utils/api_shop";
+import { getAllPrices } from "../../utils/api_shop";
 
 interface PageProps {
   tasks: ITask;
 }
 
-const Home : React.FC<PageProps> = async () => {
+const Home: React.FC<PageProps> = async () => {
   //TODO: Calling the tasks function that are created at api.tsx
   //TODO: Use the getAllTodos() and promise to get the tasks response
-  const tasks = await getAllTodos();
-  console.log(tasks);
+  const prices = await getAllPrices();
+  console.log(prices);
   return (
     <main className="max-w-4xl mx-auto mt-4">
-      {/* //FIXME: Add the styling here */}
       <div>
-        {/* //TODO: Create the AddTask Component */}
-        {/* //FIXME: Add the styling here */}
-        <h1 className="mb-3.5">Todo List App by AxelAdib</h1>
-        <AddTask />
+        {/* TODO: Div for title and description */}
+        <div>
+          {/* TODO: Create the carimakan title */}
+          <h1 className="text-6xl subpixel-antialiased">CariKedaiMakan.com</h1>
+          {/* TODO: Create the carimakan description */}
+          <p className="text-xl subpixel-antialiased">
+            Find the best kedai makan with best price near you
+          </p>
+        </div>
+        {/* TODO: Create the searchbar for cari makan */}
+        <div className="form-control">
+          {/* TODO: Search input */}
+          <input
+            type="text"
+            placeholder="Search"
+            className="input input-bordered w-24 md:w-auto"
+          />
+        </div>
+        {/* TODO: Create the button to "Add kedai makan" */}
+        <AddShop/>
+        {/* TODO: Display kedai makan list after the search complete*/}
       </div>
-      <TodoList tasks={tasks} />
-      {/* //TODO: Create the Todolist Component that can passing the tasks as prop */}
     </main>
   );
 };
